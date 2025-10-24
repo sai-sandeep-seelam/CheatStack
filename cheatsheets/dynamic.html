@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Cheatsheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cheatsheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">DevCheatSheet</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../contribute.html">Contribute</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </nav>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="cheatsheet-header">
+                <h1 id="cheatsheet-title">Loading...</h1>
+                <p id="cheatsheet-description">Please wait while we fetch the cheatsheet content.</p>
+                <div class="cheatsheet-meta">
+                    <span><i class="fas fa-eye"></i> <span id="views">--</span> views</span>
+                    <span><i class="fas fa-heart"></i> <span id="likes">--</span> likes</span>
+                    <span><i class="fas fa-calendar"></i> Last updated: <span id="last-updated">--</span></span>
+                    <span><i class="fas fa-user"></i> Contributor: <span id="contributor">DevHint.io</span></span>
+                </div>
+            </div>
+
+            <div class="cheatsheet-layout">
+                <div class="cheatsheet-content" id="cheatsheet-content">
+                    <div class="loading">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 DevCheatSheet. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/dynamic.js"></script>
+</body>
+</html>

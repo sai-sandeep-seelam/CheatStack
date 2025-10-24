@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheatStack - Programming Cheatsheets</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CheatStack</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#popular">Popular</a></li>
+                    <li><a href="contribute.html">Contribute</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Find the Perfect Cheatsheet</h2>
+            <p>Quick reference guides for all programming languages and frameworks</p>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search for cheatsheets...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="sort-options">
+                <span>Sort by:</span>
+                <button class="sort-btn active" data-sort="relevance">Relevance</button>
+                <button class="sort-btn" data-sort="popularity">Popularity</button>
+                <button class="sort-btn" data-sort="newest">Newest</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="popular" class="popular-section">
+        <div class="container">
+            <h2>Most Popular Cheatsheets</h2>
+            <div class="cheatsheet-grid" id="popular-cheatsheets">
+                <!-- Popular cheatsheets will be loaded here via JavaScript -->
+                <div class="loading">Loading popular cheatsheets...</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <h2>Browse by Category</h2>
+            
+            <div class="category-container">
+                <h3>Languages</h3>
+                <div class="cheatsheet-grid" id="languages-cheatsheets">
+                    <!-- Languages cheatsheets will be loaded here via JavaScript -->
+                    <div class="loading">Loading languages cheatsheets...</div>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <h3>Frontend</h3>
+                <div class="cheatsheet-grid" id="frontend-cheatsheets">
+                    <!-- Frontend cheatsheets will be loaded here via JavaScript -->
+                    <div class="loading">Loading frontend cheatsheets...</div>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <h3>Backend</h3>
+                <div class="cheatsheet-grid" id="backend-cheatsheets">
+                    <!-- Backend cheatsheets will be loaded here via JavaScript -->
+                    <div class="loading">Loading backend cheatsheets...</div>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <h3>Tools & DevOps</h3>
+                <div class="cheatsheet-grid" id="tools-cheatsheets">
+                    <!-- Tools cheatsheets will be loaded here via JavaScript -->
+                    <div class="loading">Loading tools cheatsheets...</div>
+                </div>
+            </div>
+
+            <div class="category-container">
+                <h3>Databases</h3>
+                <div class="cheatsheet-grid" id="databases-cheatsheets">
+                    <!-- Databases cheatsheets will be loaded here via JavaScript -->
+                    <div class="loading">Loading databases cheatsheets...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="all-cheatsheets">
+        <div class="container">
+            <h2>All Cheatsheets</h2>
+            <div class="cheatsheet-grid" id="all-cheatsheets">
+                <!-- All cheatsheets will be loaded here via JavaScript -->
+                <div class="loading">Loading all cheatsheets...</div>
+            </div>
+            <div class="load-more">
+                <button id="load-more-btn">Load More</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DevCheatHub</h3>
+                    <p>A collection of programming cheatsheets for developers.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contribute.html">Contribute</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#popular">Popular</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CheatStack.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

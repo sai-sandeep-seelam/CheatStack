@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribute - CodeCheatHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contribute.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- React Dependencies -->
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">CodeCheatHub</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="contribute.html" class="active">Contribute</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li id="theme-toggle-container"></li>
+                        <li>
+                            <div class="search-container">
+                                <input type="text" placeholder="Search cheatsheets...">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="contribute-hero">
+        <div class="container">
+            <h1>Contribute to CodeCheatHub</h1>
+            <p>Share your knowledge with the developer community by creating or improving cheatsheets</p>
+        </div>
+    </section>
+
+    <section class="contribute-options">
+        <div class="container">
+            <div class="option-cards">
+                <div class="option-card">
+                    <div class="card-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Create New Cheatsheet</h3>
+                    <p>Create a brand new cheatsheet for a language, framework, or tool</p>
+                    <a href="#create-form" class="btn btn-primary">Create New</a>
+                </div>
+                <div class="option-card">
+                    <div class="card-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Improve Existing</h3>
+                    <p>Add to or fix an existing cheatsheet to make it more helpful</p>
+                    <a href="#improve-form" class="btn btn-secondary">Improve Existing</a>
+                </div>
+                <div class="option-card">
+                    <div class="card-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>GitHub Contribution</h3>
+                    <p>Contribute directly through our GitHub repository</p>
+                    <a href="https://github.com/codecheathub/cheatsheets" target="_blank" class="btn btn-outline">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contribution-guidelines">
+        <div class="container">
+            <h2>Contribution Guidelines</h2>
+            <div class="guidelines-content">
+                <div class="guideline">
+                    <h3><i class="fas fa-check-circle"></i> Format & Structure</h3>
+                    <p>Follow our standard format with clear sections, examples, and explanations. Use markdown for formatting code blocks and sections.</p>
+                </div>
+                <div class="guideline">
+                    <h3><i class="fas fa-check-circle"></i> Content Quality</h3>
+                    <p>Focus on practical, concise information. Include common use cases, best practices, and gotchas. Avoid lengthy explanations.</p>
+                </div>
+                <div class="guideline">
+                    <h3><i class="fas fa-check-circle"></i> Code Examples</h3>
+                    <p>Provide working, tested code examples. Include comments where helpful. Follow language-specific style guides.</p>
+                </div>
+                <div class="guideline">
+                    <h3><i class="fas fa-check-circle"></i> Metadata</h3>
+                    <p>Include proper metadata: title, description, category, tags, and your name as contributor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="create-form" class="contribution-form">
+        <div class="container">
+            <h2>Create New Cheatsheet</h2>
+            <form id="new-cheatsheet-form">
+                <div class="form-group">
+                    <label for="title">Cheatsheet Title*</label>
+                    <input type="text" id="title" name="title" placeholder="e.g., Python 3 Basics" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">Category*</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="frontend">Frontend</option>
+                            <option value="backend">Backend</option>
+                            <option value="database">Databases</option>
+                            <option value="devops">DevOps & Tools</option>
+                            <option value="mobile">Mobile Development</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags (comma separated)</label>
+                        <input type="text" id="tags" name="tags" placeholder="e.g., python, basics, data-structures">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Short Description*</label>
+                    <input type="text" id="description" name="description" placeholder="A brief description of what this cheatsheet covers" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content">Cheatsheet Content*</label>
+                    <div class="editor-tabs">
+                        <button type="button" class="tab-btn active" data-tab="write">Write</button>
+                        <button type="button" class="tab-btn" data-tab="preview">Preview</button>
+                    </div>
+                    <div class="editor-container">
+                        <div class="tab-content active" id="write-tab">
+                            <textarea id="content" name="content" rows="15" placeholder="# Section Title
+
+## Subsection
+
+\`\`\`language
+// Code example
+\`\`\`
+
+Description and explanation..." required></textarea>
+                            <div class="editor-toolbar">
+                                <button type="button" class="toolbar-btn" data-action="heading"><i class="fas fa-heading"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="bold"><i class="fas fa-bold"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="italic"><i class="fas fa-italic"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="code"><i class="fas fa-code"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="codeblock"><i class="fas fa-file-code"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="link"><i class="fas fa-link"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="list-ul"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="list-ol"><i class="fas fa-list-ol"></i></button>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="preview-tab">
+                            <div class="preview-content">
+                                <p>Content preview will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="author-name">Your Name*</label>
+                        <input type="text" id="author-name" name="author-name" placeholder="Your name or username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author-email">Email (not published)*</label>
+                        <input type="email" id="author-email" name="author-email" placeholder="For verification only" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="github">GitHub Username (optional)</label>
+                    <input type="text" id="github" name="github" placeholder="Your GitHub username">
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree that my contribution will be licensed under the <a href="#">MIT License</a> and may be edited by moderators</label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Cheatsheet</button>
+                    <button type="button" class="btn btn-outline">Save Draft</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="improve-form" class="contribution-form">
+        <div class="container">
+            <h2>Improve Existing Cheatsheet</h2>
+            <form id="improve-cheatsheet-form">
+                <div class="form-group">
+                    <label for="existing-cheatsheet">Select Cheatsheet to Improve*</label>
+                    <select id="existing-cheatsheet" name="existing-cheatsheet" required>
+                        <option value="">Select a cheatsheet</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="react">React</option>
+                        <option value="git">Git</option>
+                        <option value="css">CSS</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="improvement-type">Type of Improvement*</label>
+                    <select id="improvement-type" name="improvement-type" required>
+                        <option value="">Select improvement type</option>
+                        <option value="add-content">Add New Content</option>
+                        <option value="fix-error">Fix Error or Typo</option>
+                        <option value="update-content">Update Outdated Content</option>
+                        <option value="improve-examples">Improve Examples</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="improvement-description">Describe Your Improvement*</label>
+                    <textarea id="improvement-description" name="improvement-description" rows="3" placeholder="Briefly describe what you're improving and why" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="improvement-content">Improvement Content*</label>
+                    <div class="editor-tabs">
+                        <button type="button" class="tab-btn active" data-tab="write-improve">Write</button>
+                        <button type="button" class="tab-btn" data-tab="preview-improve">Preview</button>
+                    </div>
+                    <div class="editor-container">
+                        <div class="tab-content active" id="write-improve-tab">
+                            <textarea id="improvement-content" name="improvement-content" rows="10" placeholder="Add your improved content here..." required></textarea>
+                            <div class="editor-toolbar">
+                                <button type="button" class="toolbar-btn" data-action="heading"><i class="fas fa-heading"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="bold"><i class="fas fa-bold"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="italic"><i class="fas fa-italic"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="code"><i class="fas fa-code"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="codeblock"><i class="fas fa-file-code"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="link"><i class="fas fa-link"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="list-ul"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" class="toolbar-btn" data-action="list-ol"><i class="fas fa-list-ol"></i></button>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="preview-improve-tab">
+                            <div class="preview-content">
+                                <p>Content preview will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="improver-name">Your Name*</label>
+                        <input type="text" id="improver-name" name="improver-name" placeholder="Your name or username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="improver-email">Email (not published)*</label>
+                        <input type="email" id="improver-email" name="improver-email" placeholder="For verification only" required>
+                    </div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="improve-terms" name="improve-terms" required>
+                    <label for="improve-terms">I agree that my contribution will be licensed under the <a href="#">MIT License</a> and may be edited by moderators</label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Improvement</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-items">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does the review process take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically review submissions within 3-5 business days. For minor improvements or fixes, the process may be faster. You'll receive an email notification when your submission is reviewed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What format should I use for code examples?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Use markdown code blocks with language specification for syntax highlighting. For example:</p>
+                        <pre><code>```javascript
+function example() {
+  return "Hello World";
+}
+```</code></pre>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Will I be credited for my contribution?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! All contributors are credited on the cheatsheet they contributed to. If you provided your GitHub username, we'll also link to your profile.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I update my submission after it's published?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can submit improvements to your own cheatsheets or any other published cheatsheet using the "Improve Existing" form.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>CodeCheatHub</h3>
+                    <p>TL;DR for developer documentation</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Site</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contribute.html">Contribute</a></li>
+                            <li><a href="privacy.html">Privacy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="https://github.com/codecheathub" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                            <li><a href="https://twitter.com/codecheathub" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 CodeCheatHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contribute.js"></script>
+    <script src="js/react.js"></script>
+</body>
+</html>
